@@ -1,0 +1,1 @@
+Portfolio redesign work initiated on develop branch. Next commit will replace starter HTML with production UI.
