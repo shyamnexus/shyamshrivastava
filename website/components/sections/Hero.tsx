@@ -58,19 +58,19 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Button
-              size="lg"
-              className="bg-blue-600 text-white hover:bg-blue-700"
-            >
-              Explore Projects
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white"
-            >
-              Download Resume
-            </Button>
+				asChild
+			  size="lg"
+			  variant="outline"
+			  className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white"
+			>
+			  <a
+				href="/resume/Shyam-Shrivastava-Resume.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+			  >
+				View Resume
+			  </a>
+			</Button>
           </div>
 
           {/* Metrics */}
