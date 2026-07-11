@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -56,23 +56,24 @@ export default function Hero() {
             production-ready solutions.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button
-				asChild
-			  size="lg"
-			  variant="outline"
-			  className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white"
-			>
-			  <a
-				href="/resume/Shyam-Shrivastava-Resume.pdf"
-				target="_blank"
-				rel="noopener noreferrer"
-			  >
-				View Resume
-			  </a>
-			</Button>
-          </div>
+         <div className="mt-10 flex flex-wrap gap-4">
+		  <Button
+			size="lg"
+			className="bg-blue-600 text-white hover:bg-blue-700"
+		  >
+			Explore Projects
+		  </Button>
 
+		  <Link href="/resume">
+  <Button
+    size="lg"
+    variant="outline"
+    className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white"
+  >
+    View Resume
+  </Button>
+</Link>
+		</div>
           {/* Metrics */}
 
           <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
