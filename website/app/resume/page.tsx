@@ -33,9 +33,12 @@ export default function ResumePage() {
           </a>
 
           <Link href="/">
-            <Button variant="outline">
-              Back to Home
-            </Button>
+<Button
+  variant="outline"
+  className="border-blue-500 text-blue-400 hover:bg-blue-600 hover:text-white"
+>
+  Back to Home
+</Button>
           </Link>
 
         </div>
