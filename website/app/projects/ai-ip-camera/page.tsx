@@ -106,9 +106,11 @@ export default function AICameraPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-20 border-t border-slate-800">
 
-        <h2 className="text-4xl font-bold">
-          Technology Stack
-        </h2>
+        <SectionHeader
+			eyebrow="Technology"
+			title="Technology Stack"
+			subtitle="Core technologies used throughout the platform."
+		/>
 
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
 
