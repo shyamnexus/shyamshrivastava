@@ -3,31 +3,31 @@ import ComingSoonPage from "@/components/common/ComingSoonPage";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbJsonLd, createMetadata } from "@/lib/seo";
 
-const path = "/playbook/architecture-review";
+const path = "/playbook/firmware-code-review";
 
 export const metadata: Metadata = createMetadata({
-  title: "Architecture Review",
+  title: "Firmware Code Review",
   description:
-    "Questions to ask before approving a product architecture — engineering playbook for embedded platforms.",
+    "Checklist for reviewing embedded firmware before release — practical engineering playbook guidance.",
   path,
   type: "article",
   noIndex: true,
 });
 
-export default function ArchitectureReviewPage() {
+export default function FirmwareCodeReviewPage() {
   return (
     <>
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Playbook", path: "/playbook" },
-          { name: "Architecture Review", path },
+          { name: "Firmware Code Review", path },
         ])}
       />
       <ComingSoonPage
         eyebrow="Engineering Playbook"
-        title="Architecture Review"
-        subtitle="Questions I ask before approving a product architecture."
+        title="Firmware Code Review"
+        subtitle="My checklist for reviewing embedded firmware before release."
         backHref="/playbook"
         backLabel="← Back to Playbook"
       />

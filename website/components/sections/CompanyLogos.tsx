@@ -1,55 +1,37 @@
-import Image from "next/image";
+import Section from "@/components/common/Section";
 
 const companies = [
-  {
-    name: "Honeywell",
-    logo: "/logos/honeywell.svg",
-  },
-  {
-    name: "SaiAgrotel",
-    logo: "/logos/saiagrotel.png",
-  },
-  {
-    name: "NESD Labs",
-    logo: "/logos/nesdlabs.png",
-  },
-  {
-    name: "Precise Technology",
-    logo: "/logos/precise.png",
-  },
-  {
-    name: "Transworld",
-    logo: "/logos/transworld.png",
-  },
+  "Honeywell",
+  "SaiAgrotel",
+  "NESD Labs",
+  "Precise Technology",
+  "Transworld",
 ];
 
 export default function CompanyLogos() {
   return (
-    <section className="border-y border-slate-800 bg-slate-900 py-10">
-      <div className="mx-auto max-w-7xl px-6">
+    <Section
+      bordered="y"
+      spacing="sm"
+      className="bg-slate-900"
+    >
+      <p className="mb-8 text-center text-sm uppercase tracking-[0.3em] text-slate-400">
+        Trusted Experience
+      </p>
 
-        <p className="mb-8 text-center text-sm uppercase tracking-[0.3em] text-slate-500">
-          Trusted Experience
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-12">
-          {companies.map((company) => (
-            <div
-              key={company.name}
-              className="opacity-60 transition duration-300 hover:opacity-100"
-            >
-              <Image
-                src={company.logo}
-                alt={company.name}
-                width={140}
-                height={60}
-                className="grayscale hover:grayscale-0"
-              />
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </section>
+      <ul
+        aria-label="Companies where Shyam has worked"
+        className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-12"
+      >
+        {companies.map((company) => (
+          <li
+            key={company}
+            className="min-w-32 text-center text-base font-semibold tracking-wide text-slate-400 transition-colors hover:text-white"
+          >
+            {company}
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }

@@ -1,7 +1,6 @@
-export interface Product {
-  emoji: string;
-  title: string;
+export interface JourneyItem {
+  year: string;
   company: string;
+  title: string;
   description: string;
-  technologies: string[];
 }

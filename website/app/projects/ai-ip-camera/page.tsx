@@ -1,129 +1,119 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import type { Metadata } from "next";
+import ButtonLink from "@/components/common/ButtonLink";
+import PageHero from "@/components/common/PageHero";
+import Section from "@/components/common/Section";
+import SectionHeader from "@/components/common/SectionHeader";
+import TechBadge from "@/components/common/TechBadge";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbJsonLd, createMetadata } from "@/lib/seo";
+
+const heroTech = [
+  "Embedded Linux",
+  "ONVIF",
+  "AI",
+  "RTSP",
+  "Secure Boot",
+  "OTA",
+];
+
+const stack = [
+  "Linux",
+  "Buildroot",
+  "ONVIF",
+  "RTSP",
+  "H.265",
+  "Secure Boot",
+  "HTTPS",
+  "OTA",
+];
+
+const responsibilities = [
+  "Cross-functional engineering leadership",
+  "Embedded Linux architecture",
+  "Firmware planning and reviews",
+  "Product roadmap execution",
+  "STQC & BIS certification support",
+  "Manufacturing readiness",
+];
+
+export const metadata: Metadata = createMetadata({
+  title: "AI Surveillance Camera Platform",
+  description:
+    "Secure Embedded Linux surveillance platform with ONVIF interoperability, AI capabilities, remote management, and regulatory certification.",
+  path: "/projects/ai-ip-camera",
+  type: "article",
+});
 
 export default function AICameraPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main id="main-content">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+          {
+            name: "AI Surveillance Camera Platform",
+            path: "/projects/ai-ip-camera",
+          },
+        ])}
+      />
 
-      {/* Hero */}
-
-      <section className="border-b border-slate-800">
-        <div className="mx-auto max-w-7xl px-6 py-20">
-
-          <p className="uppercase tracking-[0.3em] text-blue-400">
-            Honeywell Technologies
-          </p>
-
-          <h1 className="mt-4 text-6xl font-bold">
+      <PageHero
+        eyebrow="Honeywell Technologies"
+        title={
+          <>
             AI Surveillance
             <br />
             Camera Platform
-          </h1>
-
-          <p className="mt-8 max-w-4xl text-xl leading-9 text-slate-300">
-            Development of a secure Embedded Linux surveillance platform
-            supporting ONVIF interoperability, AI capabilities,
-            remote management and regulatory certification.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-3">
-
-            {[
-              "Embedded Linux",
-              "ONVIF",
-              "AI",
-              "RTSP",
-              "Secure Boot",
-              "OTA",
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-blue-500 px-4 py-2 text-blue-300"
-              >
-                {tech}
-              </span>
-            ))}
-
-          </div>
-
-          <div className="mt-10">
-
-            <Link href="/projects">
-              <Button variant="outline">
-                ← Back to Projects
-              </Button>
-            </Link>
-
-          </div>
-
+          </>
+        }
+        subtitle="Development of a secure Embedded Linux surveillance platform supporting ONVIF interoperability, AI capabilities, remote management and regulatory certification."
+        subtitleClassName="mt-8 max-w-4xl leading-9"
+      >
+        <div className="flex flex-wrap gap-3">
+          {heroTech.map((tech) => (
+            <TechBadge key={tech} text={tech} />
+          ))}
         </div>
-      </section>
 
-      {/* Challenge */}
+        <div className="mt-10">
+          <ButtonLink
+            href="/projects"
+            variant="outline"
+            className="min-h-11 px-5"
+          >
+            ← Back to Projects
+          </ButtonLink>
+        </div>
+      </PageHero>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-
-        <h2 className="text-4xl font-bold">
-          The Challenge
-        </h2>
-
-        <p className="mt-8 leading-9 text-slate-400">
+      <Section maxWidth="6xl" bordered={false} spacing="md">
+        <SectionHeader title="The Challenge" className="mb-8" />
+        <p className="leading-9 text-slate-400">
           Develop a modern AI-enabled surveillance platform capable of
-          supporting multiple camera variants while meeting
-          performance, cybersecurity, certification and manufacturing
-          requirements.
+          supporting multiple camera variants while meeting performance,
+          cybersecurity, certification and manufacturing requirements.
         </p>
+      </Section>
 
-      </section>
-
-      {/* Role */}
-
-      <section className="mx-auto max-w-6xl px-6 py-20 border-t border-slate-800">
-
-        <h2 className="text-4xl font-bold">
-          My Role
-        </h2>
-
-        <ul className="mt-8 space-y-4 text-slate-400">
-
-          <li>• Cross-functional engineering leadership</li>
-
-          <li>• Embedded Linux architecture</li>
-
-          <li>• Firmware planning and reviews</li>
-
-          <li>• Product roadmap execution</li>
-
-          <li>• STQC & BIS certification support</li>
-
-          <li>• Manufacturing readiness</li>
-
+      <Section maxWidth="6xl" spacing="md">
+        <SectionHeader title="My Role" className="mb-8" />
+        <ul className="space-y-4 text-slate-400">
+          {responsibilities.map((item) => (
+            <li key={item}>• {item}</li>
+          ))}
         </ul>
+      </Section>
 
-      </section>
-
-      {/* Technology */}
-
-      <section className="mx-auto max-w-6xl px-6 py-20 border-t border-slate-800">
-
+      <Section maxWidth="6xl" spacing="md">
         <SectionHeader
-			eyebrow="Technology"
-			title="Technology Stack"
-			subtitle="Core technologies used throughout the platform."
-		/>
+          eyebrow="Technology"
+          title="Technology Stack"
+          subtitle="Core technologies used throughout the platform."
+        />
 
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-
-          {[
-            "Linux",
-            "Buildroot",
-            "ONVIF",
-            "RTSP",
-            "H.265",
-            "Secure Boot",
-            "HTTPS",
-            "OTA",
-          ].map((item) => (
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {stack.map((item) => (
             <div
               key={item}
               className="rounded-xl border border-slate-800 bg-slate-900 p-5 text-center"
@@ -131,11 +121,8 @@ export default function AICameraPage() {
               {item}
             </div>
           ))}
-
         </div>
-
-      </section>
-
+      </Section>
     </main>
   );
 }

@@ -1,0 +1,27 @@
+# Project Rules
+
+This is a production-grade Next.js portfolio website.
+
+Tech stack:
+
+- Next.js App Router
+- TypeScript
+- TailwindCSS
+- Framer Motion
+- shadcn/ui
+
+Architecture:
+
+- Components must be reusable.
+- UI components belong in components/common.
+- Sections belong in components/sections.
+- Project-specific UI belongs in components/projects.
+- Data belongs in data/.
+- Types belong in types/.
+- Never duplicate code.
+- Prefer composition over copy-paste.
+- Use TypeScript everywhere.
+- Use responsive Tailwind classes.
+- Keep accessibility in mind.
+- Do not introduce unnecessary dependencies.
+- Keep components under ~200 lines where practical.

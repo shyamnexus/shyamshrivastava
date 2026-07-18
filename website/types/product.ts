@@ -4,4 +4,5 @@ export interface Product {
   company: string;
   description: string;
   technologies: string[];
+  href?: string;
 }
