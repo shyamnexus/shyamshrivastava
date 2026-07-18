@@ -2,7 +2,7 @@ import Link from "next/link";
 import Section from "@/components/common/Section";
 import SectionHeader from "@/components/common/SectionHeader";
 import TechBadge from "@/components/common/TechBadge";
-import { products } from "@/data/product";
+import { projects } from "@/data/projects";
 
 export default function Products() {
   return (
@@ -17,7 +17,7 @@ export default function Products() {
       />
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => {
+        {projects.map((product) => {
           const content = (
             <>
               <div aria-hidden="true" className="text-5xl">
@@ -28,7 +28,7 @@ export default function Products() {
 
               <p className="mt-2 text-blue-400">{product.company}</p>
 
-              <p className="mt-4 text-slate-400">{product.description}</p>
+              <p className="mt-4 text-slate-400">{product.summary}</p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {product.technologies.map((tech) => (
@@ -43,16 +43,12 @@ export default function Products() {
               key={product.title}
               className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition-colors hover:border-blue-500 focus-within:border-blue-500"
             >
-              {product.href ? (
-                <Link
-                  href={product.href}
-                  className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                >
-                  {content}
-                </Link>
-              ) : (
-                content
-              )}
+              <Link
+                href={`/projects/${product.slug}`}
+                className="block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
+                {content}
+              </Link>
             </article>
           );
         })}

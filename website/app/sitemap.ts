@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/data/projects";
 import { getSiteUrl } from "@/lib/seo";
 
 const staticRoutes = [
@@ -6,14 +7,15 @@ const staticRoutes = [
   "/resume",
   "/playbook",
   "/projects",
-  "/projects/ai-ip-camera",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const lastModified = new Date();
 
-  return staticRoutes.map((path) => ({
+  const projectRoutes = projects.map((project) => `/projects/${project.slug}`);
+
+  return [...staticRoutes, ...projectRoutes].map((path) => ({
     url: path === "/" ? siteUrl : `${siteUrl}${path}`,
     lastModified,
     changeFrequency: path === "/" ? "weekly" : "monthly",

@@ -3,7 +3,7 @@ import Link from "next/link";
 import PageHero from "@/components/common/PageHero";
 import Section from "@/components/common/Section";
 import JsonLd from "@/components/seo/JsonLd";
-import { products } from "@/data/product";
+import { projects } from "@/data/projects";
 import { breadcrumbJsonLd, createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -33,30 +33,26 @@ export default function ProjectsPage() {
 
       <Section bordered={false} spacing="md" className="pt-0">
         <div className="grid gap-6 md:grid-cols-2">
-          {products.map((product) => {
+          {projects.map((project) => {
             const card = (
               <>
-                <p className="text-sm text-blue-400">{product.company}</p>
-                <h3 className="mt-2 text-2xl font-semibold">{product.title}</h3>
-                <p className="mt-3 text-slate-400">{product.description}</p>
+                <span aria-hidden="true" className="text-3xl">
+                  {project.emoji}
+                </span>
+                <p className="mt-4 text-sm text-blue-400">{project.company}</p>
+                <h3 className="mt-2 text-2xl font-semibold">{project.title}</h3>
+                <p className="mt-3 text-slate-400">{project.summary}</p>
               </>
             );
 
-            return product.href ? (
+            return (
               <Link
-                key={product.title}
-                href={product.href}
+                key={project.slug}
+                href={`/projects/${project.slug}`}
                 className="rounded-2xl border border-slate-800 bg-slate-900 p-6 transition hover:border-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 {card}
               </Link>
-            ) : (
-              <article
-                key={product.title}
-                className="rounded-2xl border border-slate-800 bg-slate-900 p-6"
-              >
-                {card}
-              </article>
             );
           })}
         </div>
